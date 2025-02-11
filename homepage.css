@@ -1,4 +1,28 @@
 a {
     font-size: 16px;
     color: #0000FF;
+    text-decoration: solid;
+    color: white;
+}
+
+li::marker {
+    color: white;
+}
+
+div {
+    color: white;
+    font-size: 24px;
+    padding: 3%;
+}
+
+.flex-container {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    align-self: center;
+    margin-right: 1%;
+    flex-direction: row;
 }
