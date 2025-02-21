@@ -1,8 +1,8 @@
 a {
     font-size: 16px;
-    color: #0000FF;
     text-decoration: solid;
     color: white;
+    margin-bottom: 4%;
 }
 
 li::marker {
@@ -11,14 +11,19 @@ li::marker {
 
 div {
     color: white;
-    font-size: 24px;
-    padding: 3%;
+    align-self: center;
 }
 
 .flex-container {
     background-color: #333;
     display: flex;
     justify-content: space-between;
+}
+
+.flex-container p {
+    font-size: 40px;
+    color: white;
+    align-self: center;
 }
 
 .links {
