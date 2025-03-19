@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Path of Stealth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <h1>The Path of Stealth</h1>
+        <p>To successfully navigate the Path of Stealth, you must choose your actions carefully. Select the correct sequence of actions to avoid detection and reach your objective.</p>
+        <!-- Actions -->
+        <div onclick="selectAction('hide')" class="stealth-option" id="hide">Hide in the shadows</div>
+        <div onclick="selectAction('run')" class="stealth-option" id="run">Run quickly to the next cover</div>
+        <div onclick="selectAction('distract')" class="stealth-option" id="distract">Create a distraction</div>
+        <div onclick="selectAction('wait')" class="stealth-option" id="wait">Wait for the right moment</div>
+        <!-- Buttons -->
+        <button onclick="checkSequence()" id="check">Check Sequence</button>
+        <button onclick="reset()" id="reset">Reset!</button>
+        <script>
+            const correctSequence = ['hide', 'wait', 'distract'];
+            const hide = document.getElementById("hide");
+            const run = document.getElementById("run");
+            const distract = document.getElementById("distract");
+            const wait = document.getElementById("wait");
+            const check = document.getElementById("check");
+            const options = document.getElementsByClassName("stealth-option");
+            let numSeq = 0;
+            function selectAction(selection) {
+                if (selection == "hide") {
+                    hide.style.backgroundColor = "red";
+                    hide.style.color = "white";
+                    if (numSeq == 0) {
+                        numSeq = 1;
+                    }
+                } else if (selection == "run") {
+                    run.style.backgroundColor = "red";
+                    run.style.color = "white";
+                    if (numSeq != -1) {
+                        numSeq = -1;
+                    }
+                } else if (selection == "distract") {
+                    distract.style.backgroundColor = "red";
+                    distract.style.color = "white";
+                    if (numSeq == 2) {
+                        numSeq = 3;
+                    }
+                } else if (selection == "wait") { 
+                    wait.style.backgroundColor = "red";
+                    wait.style.color = "white";
+                    if (numSeq == 1) {
+                        numSeq = 2;
+                    }
+                }
+            }
+            function checkSequence() {
+                if (numSeq == 3) {
+                    alert("Congrajulations! You have successfully hidden and continue on your path!");
+                    window.location.replace("https://ldown-data.github.io/page6.html");
+                } else {
+                    reset();
+                }
+            }
+            function reset() {
+                for (let i = 0; i < options.length; i++) {
+                    options[i].style.backgroundColor = "white";
+                    options[i].style.color = "black";
+                }
+                numSeq = 0;
+            }
+        </script>
+    </section>
+</body>
+</html>

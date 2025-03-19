@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First Obstacle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <h1>The First Obstacle</h1>
+        <p>As you venture deeper into the Dark Forest, you encounter a mystical guardian. The guardian blocks your path and poses a riddle:</p>
+        <blockquote>"I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?”</blockquote>
+        <form action="https://ldown-data.github.io/page5.html" method="get">
+            <label for="riddleAnswer">Your Answer: </label>
+            <input type="text" id="riddleAnswer" oninput="changeButton(correctAnswer, answerInput.value)">
+            <input type="submit" id="submitButton" name="submitButton" value="Submit Answer" style="color: white; background-color: red;">
+        </form>
+        <p>Think carefully, for the correct answer will allow you passage.</p>
+    </section>
+    <script>
+        const answerInput = document.getElementById("riddleAnswer");
+        const correctAnswer = "echo";
+        const submitButton = document.getElementById("submitButton");
+        function changeButton(correct, userAnswer) {
+            if (userAnswer == correct) {
+                submitButton.style = "background-color: green;";
+            } else {
+                submitButton.style = "background-color: red;";
+            }
+            console.log("I did something " + userAnswer + " " + correct);
+        }
+        answerInput.addEventListener("input", changeButton(correctAnswer, answerInput.value));
+    </script>
+</body>
+</html>
